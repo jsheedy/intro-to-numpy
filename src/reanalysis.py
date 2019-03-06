@@ -179,11 +179,11 @@ def render(ds):
         height = int(grid[i, j].values)
         level = int(ds['level'][state.l].values)
         print_status(t, height, level)
-        sdl2.SDL_Delay(10)
+        sdl2.SDL_Delay(5)
 
     sdl2.ext.quit()
 
 
 if __name__ == "__main__":
-    ds = xarray.open_dataset('../../data/reanalysis.hgt.1948-2019.nc') # chunks={'time': 10000})
+    ds = xarray.open_dataset('../../data/reanalysis.hgt.1948-2019.nc', chunks={'time': 10000})
     render(ds)
